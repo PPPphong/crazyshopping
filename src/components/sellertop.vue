@@ -5,6 +5,7 @@
       mode="horizontal"
       :ellipsis="false"
       @select="handleSelect"
+      router
   >
     <el-menu-item index="0">
       <a href="/">CrazyShopping</a>
@@ -15,25 +16,14 @@
     </el-menu-item>
     <el-sub-menu index="2">
       <template #title>菜单</template>
-<!--      <el-menu-item index="2-1">-->
-<!--        <div>-->
-<!--          <router-link to="/UploadGoods">发布商品</router-link>-->
-<!--        </div>-->
-<!--      </el-menu-item>-->
-      <el-menu-item index="2-2">
-        <div>
-          <router-link to="/ordersmanager">订单管理</router-link>
-        </div>
+      <el-menu-item index="ordersmanager">
+          订单管理
       </el-menu-item>
-      <el-menu-item index="2-3">
-        <div>
-          <router-link to="/historygoods">历史商品</router-link>
-        </div>
+      <el-menu-item index="historygoods">
+        历史商品
       </el-menu-item>
-      <el-menu-item index="2-4">
-        <div>
-          <router-link to="/changepwd">修改密码</router-link>
-        </div>
+      <el-menu-item index="changepwd">
+        修改密码
       </el-menu-item>
     </el-sub-menu>
   </el-menu>

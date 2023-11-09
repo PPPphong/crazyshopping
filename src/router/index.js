@@ -1,4 +1,4 @@
-import {createRouter, createWebHashHistory, createWebHistory} from 'vue-router'
+import {createRouter, createWebHashHistory} from 'vue-router'
 import UploadGoods from '@/components/UploadGoods.vue'
 import Goods from '@/components/Goods.vue'
 import ChangePwd from '@/components/ChangePwd.vue'

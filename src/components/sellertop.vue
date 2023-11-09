@@ -16,6 +16,9 @@
     </el-menu-item>
     <el-sub-menu index="2">
       <template #title>菜单</template>
+      <el-menu-item index="uploadgoods">
+        发布商品
+      </el-menu-item>
       <el-menu-item index="ordersmanager">
           订单管理
       </el-menu-item>

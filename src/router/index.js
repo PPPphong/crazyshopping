@@ -9,6 +9,7 @@ import EditGoods from "@/components/EditGoods.vue"
 import HistoryGoods from "@/components/HistoryGoods.vue"
 import goodsinfo from "@/components/GoodsInfo.vue"
 import NotFound from '@/components/NotFound.vue'
+import register from '@/components/register.vue'
 
 const router = createRouter({
     history: createWebHashHistory(),
@@ -23,6 +24,7 @@ const router = createRouter({
         { path: '/buy', component: Buy },
         { path: '/historygoods',component:HistoryGoods},
         { path: '/goodsinfo',component:goodsinfo},
+        { path:'/register',component:register},
         {
             path: '/:catchAll(.*)',
             name: 'NotFound',

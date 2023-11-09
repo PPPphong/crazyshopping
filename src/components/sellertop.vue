@@ -7,11 +7,11 @@
       @select="handleSelect"
       router
   >
-    <el-menu-item index="0">
-      <a href="/">CrazyShopping</a>
+    <el-menu-item index="/">
+      CrazyShopping
     </el-menu-item>
     <div class="flex-grow" />
-    <el-menu-item index="1">
+    <el-menu-item>
       <el-button link  @click="logout">退出登录</el-button>
     </el-menu-item>
     <el-sub-menu index="2">

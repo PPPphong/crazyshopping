@@ -1,10 +1,11 @@
 <template>
-  <div v-if="states === '已登录'">
-    <sellertop></sellertop>
-  </div>
-  <div v-else-if="states === '未登录'">
-    <usertop></usertop>
-  </div>
+<!--  <div v-if="states === '已登录'">-->
+<!--    <sellertop></sellertop>-->
+<!--  </div>-->
+<!--  <div v-else-if="states === '未登录'">-->
+<!--    <usertop></usertop>-->
+<!--  </div>-->
+  <visitortop></visitortop>
 </template>
 
 <script>
@@ -12,10 +13,12 @@ import usertop from "@/components/usertop.vue";
 import {ref, onMounted} from "vue";
 import axios from "axios";
 import Sellertop from "@/components/sellertop.vue";
+import Visitortop from "@/components/visitortop.vue";
 
 
 export default {
   components: {
+    Visitortop,
     Sellertop,
     usertop,
   },

@@ -18,9 +18,14 @@
       </el-form-item>
       <el-form-item label="商品价格" prop="good_price">
         <el-input v-model="ruleForm.good_price" @blur="validateInput('good_price')" />
-<!--        <el-message v-if="validationErrors.good_price" type="error">{{ validationErrors.good_price }}</el-message>-->
       </el-form-item>
-      <el-form-item label="商品预览图:">
+      <el-form-item label="商品数量" prop="good_num">
+          <el-input-number v-model="num" :min="1" model-value="1" />
+      </el-form-item>
+      <el-form-item label="商品分类" prop="good_category">
+        <el-cascader :options="options" :show-all-levels="false" />
+      </el-form-item>
+      <el-form-item label="商品预览图">
         <el-upload
             :http-request="httpRequest"
             multiple
@@ -33,8 +38,6 @@
         <el-button type="primary" @click="submitForm">
           发布
         </el-button>
-      </el-form-item>
-      <el-form-item>
         <el-button type="primary" @click="submitFormQuit">
           取消
         </el-button>
@@ -49,7 +52,6 @@
 import { ref, reactive, computed,onMounted } from 'vue';
 import axios from 'axios'
 import {ElMessage, ElMessageBox } from 'element-plus'
-import { UploadFilled,Plus} from '@element-plus/icons-vue'
 export default {
   setup() {
     // const headers = {
@@ -70,25 +72,30 @@ export default {
     }
 
 
-    onMounted(async () => {
-      let states = ref('未登录');
-      try {
-        // 假设返回的状态值为status
-        const response = await axios.get('http://localhost:8080/user/isLogin');
-        states.value = response.data.msg;
-        if(states.value=='未登录'){
-          window.location.hash = '/login';
-        }
-        console.log(states)
-      } catch (error) {
-        console.log(error);
-      }
-    })
+    // onMounted(async () => {
+    //   let states = ref('未登录');
+    //   try {
+    //     // 假设返回的状态值为status
+    //     const response = await axios.get('http://localhost:8080/user/isLogin');
+    //     states.value = response.data.msg;
+    //     if(states.value=='未登录'){
+    //       window.location.hash = '/login';
+    //     }
+    //     console.log(states)
+    //   } catch (error) {
+    //     console.log(error);
+    //   }
+    // })
 
     const isNumber = computed(() => {
       const pricePattern = /^\d+(\.\d{1,2})?$/;
       return pricePattern.test(ruleForm.good_price);
     });
+
+    // const num = ref(1);
+    // const handleChange = (value: number) => {
+    //   console.log(value)
+    // };
 
     const validationErrors = reactive({
       good_price: '',
@@ -200,6 +207,8 @@ export default {
       ruleForm,
       rules,
       validationErrors,
+      // num,
+      // handleChange,
       openConfirmationDialogSuccess,
       openConfirmationDialogFail,
       submitForm,
@@ -207,7 +216,8 @@ export default {
       beforeUpload,
       handleUploadSuccess,
       submitFormQuit,
-      httpRequest
+      httpRequest,
+
     };
   },
 };

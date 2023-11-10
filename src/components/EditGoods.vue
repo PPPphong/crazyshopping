@@ -20,7 +20,7 @@
         <el-input v-model="ruleForm.good_price" @blur="validateInput('good_price')" />
         <!--        <el-message v-if="validationErrors.good_price" type="error">{{ validationErrors.good_price }}</el-message>-->
       </el-form-item>
-      <el-form-item label="商品预览图:">
+      <el-form-item label="商品预览图">
         <el-upload
             :http-request="httpRequest"
             multiple

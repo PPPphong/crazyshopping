@@ -5,7 +5,7 @@
 <!--  <div v-else-if="states === '未登录'">-->
 <!--    <usertop></usertop>-->
 <!--  </div>-->
-  <visitortop></visitortop>
+  <sellertop></sellertop>
 </template>
 
 <script>

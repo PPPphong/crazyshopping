@@ -9,25 +9,24 @@
     <el-table-column prop="goodsName" label="商品名称" width="150"/>
     <el-table-column prop="name" label="姓名" width="150"/>
     <el-table-column prop="phone" label="电话号码" width="150"/>
-    <el-table-column prop="time" label="时间" width="150"/>
     <el-table-column prop="goodsId" label="商品编号" width="150"/>
-    <el-table-column prop="info" label="状态" width="150"/>
-    <el-table-column prop="isComplete" label="是否完成" width="150"/>
+    <el-table-column prop="state" label="状态" width="150"/>
+    <el-table-column prop="location" label="地址" width="150"/>
     <el-table-column fixed="right" label="操作" width="120">
       <template #default="{ row }">
-        <el-button v-show="row.info === '等待处理'" link type="primary" size="small" @click="acceptClick(row)">接受
+        <el-button v-show="row.state === '等待处理'" link type="primary" size="small" @click="acceptClick(row)">接受
         </el-button>
-        <el-button v-show="row.info === '等待处理'" link type="primary" size="small" @click="declineClick(row)">拒绝
+        <el-button v-show="row.state === '等待处理'" link type="primary" size="small" @click="declineClick(row)">拒绝
         </el-button>
-        <el-button v-show="row.info === '已接受'" link type="primary" size="small" @click="completeClick(row)">完成
+        <el-button v-show="row.state === '已接受'" link type="primary" size="small" @click="completeClick(row)">完成
         </el-button>
-        <el-button v-show="row.info === '已接受'" link type="primary" size="small" @click="failClick(row)">失败
+        <el-button v-show="row.state === '已接受'" link type="primary" size="small" @click="failClick(row)">失败
         </el-button>
-        <el-button v-show="row.info === '已拒绝'" link type="primary" size="small" @click="deleteClick(row)">删除
+        <el-button v-show="row.state === '已拒绝'" link type="primary" size="small" @click="deleteClick(row)">删除
         </el-button>
-        <el-button v-show="row.info === '交易失败'" link type="primary" size="small" @click="deleteClick(row)">删除
+        <el-button v-show="row.state === '交易失败'" link type="primary" size="small" @click="deleteClick(row)">删除
         </el-button>
-        <el-button v-show="row.info === '已完成'" link type="primary" size="small" @click="deleteClick(row)">删除
+        <el-button v-show="row.state === '已完成'" link type="primary" size="small" @click="deleteClick(row)">删除
         </el-button>
       </template>
     </el-table-column>
@@ -46,20 +45,20 @@ export default {
 
 
     onMounted(async () => {
-      let states = ref('未登录');
-
-      try {
-        // 假设返回的状态值为status
-        const response = await axios.get('http://localhost:8080/user/isLogin');
-        states.value = response.data.msg;
-        if (states.value === '未登录') {
-          window.location.hash = '/login';
-        }
-        console.log(states)
-
-      } catch (error) {
-        console.log(error);
-      }
+      // let states = ref('未登录');
+      //
+      // try {
+      //   // 假设返回的状态值为status
+      //   const response = await axios.get('http://localhost:8080/user/isLogin');
+      //   states.value = response.data.msg;
+      //   if (states.value === '未登录') {
+      //     window.location.hash = '/login';
+      //   }
+      //   console.log(states)
+      //
+      // } catch (error) {
+      //   console.log(error);
+      // }
 
       try {
         const response = await axios.get(

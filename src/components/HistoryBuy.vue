@@ -43,7 +43,7 @@ export default {
         const response = await axios.get(
             'http://localhost:8080/history/{username}'
         )
-        tableData.value = response.data.ordersList // 将获取到的数据赋值给tableData
+        tableData.value = response.data.array // 将获取到的数据赋值给tableData
       } catch (error) {
         console.log(error)
       }

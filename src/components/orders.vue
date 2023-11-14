@@ -38,7 +38,6 @@ export default {
       //     window.location.hash = '/login';
       //   }
       //   console.log(states)
-      //
       // } catch (error) {
       //   console.log(error);
       // }

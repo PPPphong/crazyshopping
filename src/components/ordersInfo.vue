@@ -16,9 +16,9 @@
         <p>电话：{{ phone }}</p>
         <p>地址：{{ address }}</p>
         <div class="bottom">
-            <el-button text class="button">
-              <router-link :to="{path:'/historybuy',}">返回</router-link>
-            </el-button>
+          <el-button text class="button">
+            <router-link :to="{path:'/orders',}">返回</router-link>
+          </el-button>
         </div>
       </div>
     </el-card>

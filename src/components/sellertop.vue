@@ -19,6 +19,9 @@
       <el-menu-item index="uploadgoods">
         发布商品
       </el-menu-item>
+      <el-menu-item index="userinfo">
+        用户信息
+      </el-menu-item>
       <el-menu-item index="ordersmanager">
           订单管理
       </el-menu-item>

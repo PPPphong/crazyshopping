@@ -13,6 +13,12 @@
     <el-table-column prop="time" label="时间" width="150"/>
     <el-table-column prop="state" label="状态" width="150"/>
     <el-table-column prop="location" label="地址" width="150"/>
+    <el-table-column fixed="right" label="操作" width="330">
+      <template #default="{ row }">
+        <el-button link type="primary" size="small" @click="showClick(row)">查看详情
+        </el-button>
+      </template>
+    </el-table-column>
   </el-table>
 </template>
 
@@ -54,9 +60,13 @@ export default {
 
 
     })
+    const showClick = async () => {
+      self.location='/historybuyinfo';
+    }
 
     return {
       tableData,
+      showClick,
     }
   }
 }

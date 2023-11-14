@@ -13,6 +13,7 @@ import Orders from '@/components/Orders.vue'
 import EditUserInfo from '@/components/EditUserInfo.vue'
 import GoodsList from '@/components/GoodsList.vue'
 import HistoryBuy from "../components/HistoryBuy.vue";
+import HistoryBuyInfo from "../components/HistoryBuyInfo.vue";
 
 const router = createRouter({
     history: createWebHashHistory(),
@@ -25,6 +26,7 @@ const router = createRouter({
         { path: '/changepwd', component: ChangePwd },
         { path: '/ordersmanager', component: OrdersManager },
         { path: '/historybuy', component: HistoryBuy },
+        { path: '/historybuyinfo', component: HistoryBuyInfo },
         { path: '/historygoods',component:HistoryGoods},
         { path: '/goodsinfo',component:goodsinfo},
         { path:'/register',component:register},

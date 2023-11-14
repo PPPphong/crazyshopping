@@ -1,8 +1,14 @@
 <template>
   <el-table :data="tableData" style="width: 100%">
-    <el-table-column prop="name" label="姓名" width="150"/>
-    <el-table-column prop="phone" label="电话号码" width="150"/>
-    <el-table-column prop="address" label="地址" width="150"/>
+    <el-table-column prop="name" label="姓名" width="420"/>
+    <el-table-column prop="phone" label="电话号码" width="420"/>
+    <el-table-column prop="address" label="地址" width="420"/>
+    <el-table-column fixed="right" label="查看购买历史" width="420">
+      <template #default="{ row }">
+        <el-button link type="primary" size="small" @click="showClick(row)">查看
+        </el-button>
+      </template>
+    </el-table-column>
   </el-table>
 </template>
 
@@ -34,7 +40,7 @@ export default {
 
       try {
         const response = await axios.get(
-            'http://localhost:8080/orders'
+            'http://localhost:8080/user/all'
         )
         tableData.value = response.data.ordersList // 将获取到的数据赋值给tableData
       } catch (error) {
@@ -43,10 +49,13 @@ export default {
 
 
     })
-
+    const showClick = async (row) => {
+      self.location='/historybuy';
+    }
 
     return {
       tableData,
+      showClick,
     }
   }
 }

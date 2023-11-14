@@ -36,6 +36,7 @@ export default {
       //   states.value = response.data.msg;
       //   if (states.value === '未登录') {
       //     window.location.hash = '/login';
+
       //   }
       //   console.log(states)
       // } catch (error) {

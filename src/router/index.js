@@ -3,7 +3,6 @@ import UploadGoods from '@/components/UploadGoods.vue'
 import ChangePwd from '@/components/ChangePwd.vue'
 import OrdersManager from '@/components/OrdersManager.vue'
 import Login from "@/components/login.vue";
-import Buy from "@/components/Buy.vue"
 import EditGoods from "@/components/EditGoods.vue"
 import HistoryGoods from "@/components/HistoryGoods.vue"
 import goodsinfo from "@/components/GoodsInfo.vue"
@@ -13,6 +12,7 @@ import UserInfo from '@/components/UserInfo.vue'
 import Orders from '@/components/Orders.vue'
 import EditUserInfo from '@/components/EditUserInfo.vue'
 import GoodsList from '@/components/GoodsList.vue'
+import HistoryBuy from "../components/HistoryBuy.vue";
 
 const router = createRouter({
     history: createWebHashHistory(),
@@ -24,7 +24,7 @@ const router = createRouter({
         { path: '/uploadgoods', component: UploadGoods },
         { path: '/changepwd', component: ChangePwd },
         { path: '/ordersmanager', component: OrdersManager },
-        { path: '/buy', component: Buy },
+        { path: '/historybuy', component: HistoryBuy },
         { path: '/historygoods',component:HistoryGoods},
         { path: '/goodsinfo',component:goodsinfo},
         { path:'/register',component:register},

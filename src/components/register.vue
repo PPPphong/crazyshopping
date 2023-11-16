@@ -30,12 +30,9 @@
       <el-button type="primary" @click="submitForm">
         注册
       </el-button>
-    </el-form-item>
-    <el-form-item>
       <el-button type="primary" @click="submitFormQuit">
         取消
       </el-button>
-
     </el-form-item>
   </el-form>
 </template>

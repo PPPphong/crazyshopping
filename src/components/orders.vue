@@ -50,6 +50,23 @@ export default {
       // }
 
       try {
+        const mockData = [
+          {
+            name: '111',
+            phone: '预览图1',
+            address: '已完成',
+            time: '2023-11-15 10:30:00',
+          },
+          {
+            name: '商品2',
+            phone: '预览图2',
+            address: '待付款',
+            time: '2023-11-15 11:45:00',
+          },
+          // 添加更多的模拟数据...
+
+        ];
+        tableData.value = mockData;
         const response = await axios.get(
             'http://localhost:8080/orders'
         )
@@ -60,8 +77,12 @@ export default {
 
 
     })
-    const showClick = async () => {
-      self.location='/historybuyinfo';
+    const showClick = async (row) => {
+      let data={
+        username:row.name
+      }
+      // console.log(data.username)
+      self.location='/ordersinfo';
     }
 
     return {

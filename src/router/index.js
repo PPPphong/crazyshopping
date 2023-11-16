@@ -13,7 +13,7 @@ import Orders from '@/components/Orders.vue'
 import EditUserInfo from '@/components/EditUserInfo.vue'
 import GoodsList from '@/components/GoodsList.vue'
 import OrdersInfo from "@/components/ordersInfo.vue";
-
+import search from "../components/search.vue";
 const router = createRouter({
     history: createWebHashHistory(),
     routes: [
@@ -30,6 +30,7 @@ const router = createRouter({
         { path:'/register',component:register},
         { path:'/userinfo',component:UserInfo},
         { path: '/orders', component: Orders },
+        { path: '/search', component: search },
         { path: '/edituserinfo', component: EditUserInfo },
         {
             path: '/:catchAll(.*)',

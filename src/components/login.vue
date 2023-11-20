@@ -9,14 +9,14 @@
             label-width="120px"
             class="demo-ruleForm"
         >
-          <el-form-item label="用户名" prop="name">
-            <el-input v-model="username"/>
+          <el-form-item label="用户名" prop="username">
+            <el-input v-model="username" type="text"/>
           </el-form-item>
-          <el-form-item label="密码" prop="pass">
+          <el-form-item label="密码" prop="password">
             <el-input v-model="password" type="password"/>
           </el-form-item>
           <el-form-item>
-            <el-button type="primary" @click="login(password)">登录</el-button>
+            <el-button type="primary" @click="login(username,password)">登录</el-button>
           </el-form-item>
         </el-form>
       </el-main>
@@ -26,37 +26,33 @@
 
 <script>
 import axios from "axios";
-import { mapState, mapActions } from 'vuex'
 import {useRouter} from "vue-router";
 import {ElMessage} from "element-plus";
 export default {
   data() {
     return {
       password: '',
-      username: ''
-    }
-  },
-  methods: {
-    showPassword() {
-      console.log(this.password);
+      username: '',
     }
   },
   setup() {
     const login = async (username,password) => {
       try {
+        console.log(username)
+        console.log(password)
         const loginClick = `http://localhost:8080/user/login`;
         const data = new FormData();
-        data.append('password', password);
         data.append('username', username);
+        data.append('password', password);
         const resp = await axios({
           method: 'POST',
           url: loginClick,
           data: data,
         });
-        // console.log(resp.data.msg);
         if(resp.data.msg=='登录成功'){
           self.location='/';
-        }else{
+        }
+        else if(resp.data.msg=='登录失败'){
           ElMessage.error('登录失败');
         }
       } catch (error) {

@@ -1,11 +1,14 @@
 <template>
-<!--  <div v-if="states === '已登录'">-->
-<!--    <sellertop></sellertop>-->
-<!--  </div>-->
-<!--  <div v-else-if="states === '未登录'">-->
-<!--    <usertop></usertop>-->
-<!--  </div>-->
-  <sellertop></sellertop>
+  <div v-if="states === '0'">
+    <sellertop></sellertop>
+  </div>
+  <div v-else-if="states === '1'">
+    <usertop></usertop>
+  </div>
+  <div v-else-if="states === '2'">
+    <visitortop></visitortop>
+  </div>
+<!--  <sellertop></sellertop>-->
 </template>
 
 <script>
@@ -23,12 +26,12 @@ export default {
     usertop,
   },
   setup() {
-    let states = ref('未登录');
+    let states = ref('2');
 
     const isLogin = async () => {
       try {
         // 假设返回的状态值为status
-        const response = await axios.get('http://localhost:8080/user/isLogin');
+        const response = await axios.get('http://localhost:8080/user/level');
         states.value = response.data.msg;
 
       } catch (error) {
